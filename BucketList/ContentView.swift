@@ -30,7 +30,7 @@ struct ContentView: View {
         case loading, success, failed
     }
     
-    var loadingState = LoadingState.loading
+    var loadingState = LoadingState.success
     
     var body: some View {
         Group {
@@ -39,12 +39,13 @@ struct ContentView: View {
 //            } else {
 //                Circle()
 //            }
-            if loadingState == .loading {
-                LoadingView()
-            } else if loadingState == .success {
-                SuccessView()
-            } else if loadingState == .failed {
-                FailedView()
+            switch loadingState {
+                case .loading:
+                    LoadingView()
+                case .success:
+                    SuccessView()
+                case .failed:
+                    FailedView()
             }
         }
     }
