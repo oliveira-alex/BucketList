@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E788EB11272343BC004402E2 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E788EB10272343BC004402E2 /* MapView.swift */; };
 		E7C90C842720C18D00FB6846 /* BucketListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C90C832720C18D00FB6846 /* BucketListApp.swift */; };
 		E7C90C862720C18D00FB6846 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C90C852720C18D00FB6846 /* ContentView.swift */; };
 		E7C90C882720C18E00FB6846 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7C90C872720C18E00FB6846 /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E788EB10272343BC004402E2 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		E7C90C802720C18D00FB6846 /* BucketList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BucketList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7C90C832720C18D00FB6846 /* BucketListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketListApp.swift; sourceTree = "<group>"; };
 		E7C90C852720C18D00FB6846 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,6 +55,7 @@
 			children = (
 				E7C90C832720C18D00FB6846 /* BucketListApp.swift */,
 				E7C90C852720C18D00FB6846 /* ContentView.swift */,
+				E788EB10272343BC004402E2 /* MapView.swift */,
 				E7C90C872720C18E00FB6846 /* Assets.xcassets */,
 				E7C90C892720C18E00FB6846 /* Preview Content */,
 			);
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7C90C862720C18D00FB6846 /* ContentView.swift in Sources */,
+				E788EB11272343BC004402E2 /* MapView.swift in Sources */,
 				E7C90C842720C18D00FB6846 /* BucketListApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
