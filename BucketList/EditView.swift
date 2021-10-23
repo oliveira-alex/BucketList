@@ -45,6 +45,14 @@ struct EditView: View {
             .navigationTitle("Edit place")
             .toolbar {
                 Button("Done") {
+                    if placemark.wrappedTitle.isEmpty {
+                        placemark.wrappedTitle = "Unkown place"
+                    }
+                    
+                    if placemark.wrappedSubtitle.isEmpty {
+                        placemark.wrappedSubtitle = "No description"
+                    }
+                    
                     self.presentationMode.wrappedValue.dismiss()
                 }
             }

@@ -18,8 +18,8 @@ struct ContentView: View {
     @State private var isUnlocked = false
     
     var body: some View {
-        ZStack {
-            if isUnlocked {
+        if isUnlocked {
+            ZStack {
                 MapView(centerCoordinate: $centerCoordinate, selectedPlace: $selectedPlace, showingPlaceDetails: $showingPlaceDetails, annotations: locations)
                     .edgesIgnoringSafeArea(.all)
                 Circle()
@@ -33,7 +33,7 @@ struct ContentView: View {
                         Spacer()
                         Button(action: {
                             let newLocation = CodableMKPointAnnotation()
-                            newLocation.title = "Example Location"
+//                            newLocation.title = "Example Location"
                             newLocation.coordinate = self.centerCoordinate
                             self.locations.append(newLocation)
                             
@@ -50,27 +50,28 @@ struct ContentView: View {
                         }
                     }
                 }
-            } else {
-                Button("Unlock Places") {
-                    self.authenticate()
+            }
+            .alert(isPresented: $showingPlaceDetails) {
+                Alert(title: Text(selectedPlace?.title ?? "Unknown"), message: Text(selectedPlace?.subtitle ?? "Missing place information."), primaryButton: .default(Text("OK")), secondaryButton: .default(Text("Edit")) {
+                    self.showingEditScreen = true
+                })
+            }
+            .sheet(isPresented: $showingEditScreen, onDismiss: saveData) {
+                if self.selectedPlace != nil {
+                    EditView(placemark: self.selectedPlace!)
                 }
-                .padding()
-                .background(Color.blue)
-                .foregroundColor(.white)
-                .clipShape(Capsule())
             }
-        }
-        .alert(isPresented: $showingPlaceDetails) {
-            Alert(title: Text(selectedPlace?.title ?? "Unknown"), message: Text(selectedPlace?.subtitle ?? "Missing place information."), primaryButton: .default(Text("OK")), secondaryButton: .default(Text("Edit")) {
-                self.showingEditScreen = true
-            })
-        }
-        .sheet(isPresented: $showingEditScreen, onDismiss: saveData) {
-            if self.selectedPlace != nil {
-                EditView(placemark: self.selectedPlace!)
+            .onAppear(perform: loadData)
+        } else {
+            Button("Unlock Places") {
+                self.authenticate()
             }
+            .padding()
+            .background(Color.blue)
+            .foregroundColor(.white)
+            .clipShape(Capsule())
         }
-        .onAppear(perform: loadData)
+        
     }
     
     func getDocumentsDirectory() -> URL {
@@ -84,8 +85,20 @@ struct ContentView: View {
         do {
             let data = try Data(contentsOf: filename)
             locations = try JSONDecoder().decode([CodableMKPointAnnotation].self, from: data)
+        // Great catch for debuging JSON decoding
+        } catch let DecodingError.dataCorrupted(context) {
+            print(context)
+        } catch let DecodingError.keyNotFound(key, context) {
+            print("Key '\(key)' not found:", context.debugDescription)
+            print("codingPath:", context.codingPath)
+        } catch let DecodingError.valueNotFound(value, context) {
+            print("Value '\(value)' not found:", context.debugDescription)
+            print("codingPath:", context.codingPath)
+        } catch let DecodingError.typeMismatch(type, context)  {
+            print("Type '\(type)' mismatch:", context.debugDescription)
+            print("codingPath:", context.codingPath)
         } catch {
-            print("Unable to load saved data.")
+            print("error: ", error)
         }
     }
     
