@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var isUnlocked = false
+    @State private var showingFailedAuthenticateAlert = false
     
     var body: some View {
         if isUnlocked {
@@ -20,6 +21,11 @@ struct ContentView: View {
                 .background(Color.blue)
                 .foregroundColor(.white)
                 .clipShape(Capsule())
+                .alert(isPresented: $showingFailedAuthenticateAlert) {
+                    Alert(title: Text("No biometrics"), message: Text("Unlock without authenticate?"), primaryButton: .default(Text("Yes"), action: {
+                        self.isUnlocked = true
+                    }), secondaryButton: .cancel())
+                }
         }
         
     }
@@ -36,12 +42,15 @@ struct ContentView: View {
                     if success {
                         self.isUnlocked = true
                     } else {
-                        // error
+                        // Shows the default "Face Not Recognized" alert
                     }
                 }
             }
         } else {
             // no biometry
+            DispatchQueue.main.async {
+                self.showingFailedAuthenticateAlert = true
+            }
         }
     }
 }
