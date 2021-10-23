@@ -12,6 +12,7 @@
 		E788EB15272377E9004402E2 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E788EB14272377E9004402E2 /* EditView.swift */; };
 		E788EB1727237DB4004402E2 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = E788EB1627237DB4004402E2 /* Result.swift */; };
 		E788EB1927241AE5004402E2 /* MKPointAnnotation-Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E788EB1827241AE5004402E2 /* MKPointAnnotation-Codable.swift */; };
+		E7ABDDD92724BE40001312A8 /* PlacesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7ABDDD82724BE40001312A8 /* PlacesView.swift */; };
 		E7C90C842720C18D00FB6846 /* BucketListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C90C832720C18D00FB6846 /* BucketListApp.swift */; };
 		E7C90C862720C18D00FB6846 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C90C852720C18D00FB6846 /* ContentView.swift */; };
 		E7C90C882720C18E00FB6846 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7C90C872720C18E00FB6846 /* Assets.xcassets */; };
@@ -24,6 +25,7 @@
 		E788EB14272377E9004402E2 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 		E788EB1627237DB4004402E2 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		E788EB1827241AE5004402E2 /* MKPointAnnotation-Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKPointAnnotation-Codable.swift"; sourceTree = "<group>"; };
+		E7ABDDD82724BE40001312A8 /* PlacesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesView.swift; sourceTree = "<group>"; };
 		E7C90C802720C18D00FB6846 /* BucketList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BucketList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7C90C832720C18D00FB6846 /* BucketListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketListApp.swift; sourceTree = "<group>"; };
 		E7C90C852720C18D00FB6846 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 			children = (
 				E7C90C832720C18D00FB6846 /* BucketListApp.swift */,
 				E7C90C852720C18D00FB6846 /* ContentView.swift */,
+				E7ABDDD82724BE40001312A8 /* PlacesView.swift */,
 				E788EB1627237DB4004402E2 /* Result.swift */,
 				E788EB10272343BC004402E2 /* MapView.swift */,
 				E788EB1227237667004402E2 /* MKPointAnnotation-ObservableObject.swift */,
@@ -158,6 +161,7 @@
 				E788EB15272377E9004402E2 /* EditView.swift in Sources */,
 				E788EB1327237667004402E2 /* MKPointAnnotation-ObservableObject.swift in Sources */,
 				E788EB11272343BC004402E2 /* MapView.swift in Sources */,
+				E7ABDDD92724BE40001312A8 /* PlacesView.swift in Sources */,
 				E7C90C842720C18D00FB6846 /* BucketListApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
