@@ -10,7 +10,11 @@ import MapKit
 extension MKPointAnnotation: ObservableObject {
     public var wrappedTitle: String {
         get {
-            self.title ?? ""
+            if self.title == nil || self.title == "Unkown place" {
+                return ""
+            } else {
+                return self.title!
+            }
         }
         
         set {
@@ -20,7 +24,11 @@ extension MKPointAnnotation: ObservableObject {
     
     public var wrappedSubtitle: String {
         get {
-            self.subtitle ?? ""
+            if self.subtitle == nil || self.subtitle == "No description" {
+                return ""
+            } else {
+                return self.subtitle!
+            }
         }
         
         set {
